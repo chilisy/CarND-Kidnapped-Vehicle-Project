@@ -114,6 +114,23 @@ public:
 	const bool initialized() const {
 		return is_initialized;
 	}
+    
+private:
+    /**
+     * transform from particle coordinates to global map coordinates
+     */
+    void transform2MapCoord(LandmarkObs &obs, Particle particle);
+    
+    /**
+     * find associated landmark to a given measurement
+     */
+    int findAssociatedLandmark(LandmarkObs obs, Map map_landmarks);
+    
+    /**
+     * calculate weight for a associated landmark
+     */
+    std::vector<double> calculateWeights(Particle particle, Map map_landmarks, double std_landmark[]);
+    
 };
 
 
