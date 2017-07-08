@@ -22,7 +22,7 @@ link_directories(/usr/local/Cellar/libuv/1.11.0/lib)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
 
 
-add_executable(particle_filter ${sources} ${headers)
+add_executable(particle_filter ${sources} ${headers})
 
 
 target_link_libraries(particle_filter z ssl uv uWS)
