@@ -50,7 +50,7 @@ int main()
         // "42" at the start of the message means there's a websocket message event.
         // The 4 signifies a websocket message
         // The 2 signifies a websocket event
-        cout << "onMessage starts..." << endl;
+        //cout << "onMessage starts..." << endl;
         
         if (length && length > 2 && data[0] == '4' && data[1] == '2')
         {
@@ -153,7 +153,7 @@ int main()
             
         }
         
-        cout << "onMessage ends..." << endl;
+        //cout << "onMessage ends..." << endl;
         
     });
     

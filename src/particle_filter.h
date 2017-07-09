@@ -129,7 +129,7 @@ private:
     /**
      * calculate weight for a associated landmark
      */
-    std::vector<double> calculateWeights(Particle particle, Map map_landmarks, double std_landmark[]);
+    std::vector<double> calculateWeights(Particle particle, std::vector<LandmarkObs> observations, double std_landmark[], std::map<int, Map::single_landmark_s> mappingLandmarks);
     
     std::vector<double> normalize_vector(std::vector<double> inputVector);
     
