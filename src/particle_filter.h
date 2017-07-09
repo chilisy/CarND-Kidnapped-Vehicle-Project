@@ -78,7 +78,7 @@ public:
 	 * @param predicted Vector of predicted landmark observations
 	 * @param observations Vector of landmark observations
 	 */
-	void dataAssociation(std::vector<LandmarkObs> predicted, std::vector<LandmarkObs>& observations);
+	void dataAssociation(std::vector<LandmarkObs> pred_landmarks, std::vector<LandmarkObs>& observations);
 	
 	/**
 	 * updateWeights Updates the weights for each particle based on the likelihood of the 
@@ -130,6 +130,8 @@ private:
      * calculate weight for a associated landmark
      */
     std::vector<double> calculateWeights(Particle particle, Map map_landmarks, double std_landmark[]);
+    
+    std::vector<double> normalize_vector(std::vector<double> inputVector);
     
 };
 
