@@ -181,11 +181,24 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
             
             particles[i].weight = accumulate(weights.begin(), weights.end(), 1.0, multiplies<double>());
             
+            vector<int> associations;
+            vector<double> sense_x;
+            vector<double> sense_y;
+            // set associations
+            for(auto obs: obs_local)
+            {
+                associations.push_back(obs.id);
+                sense_x.push_back(obs.x);
+                sense_y.push_back(obs.y);
+            }
+            particles[i] = SetAssociations(particles[i], associations, sense_x, sense_y);
         }
         
         //cout << scientific << particles[i].weight << endl;
         
     }
+    
+   
     
     //cout << "updateWeights ends..." << endl;
     
@@ -291,8 +304,6 @@ void ParticleFilter::resample() {
     }
     
     particles = ptTemp;
-    
-    
     
     //cout << "resample ends..." << endl;
     
